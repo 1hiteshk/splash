@@ -1,72 +1,37 @@
-# Getting Started with Create React App
+# Shared Security Interface
 
-hitu desktop 3218 5588
-go
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The shared security interface, developed by Kubik Labs, is a unified interface to view, manage and interact with the ICS aspect of all the chain opted-in. Currently there are two chains in the ICS: Neutron and Stride, along with Cosmos Hub which provides its $2.3b marjket cap to secure the consumer chains. There are 5 main pages which provide the data related to the shared-security.
 
-## Available Scripts
+- **Overview**: Provides the insights and quick stats of the chains with the graphical data.
+- **Atom Economic Zone**: Provides the insights of the community. Displays upcoming community calls, consumer chains and their proposals(if any) and the assets available.
+- **Governance**: All the governance proposals on Cosmos Hub and the consumer chains, seperated by appropriate tags. See details for any proposal or cast you vote.
+- **Assets**: All assets of the consumer chains along with the amount.
+- **Validators**: All validators validating Cosmos Hub and the consumer chains.
 
-In the project directory, you can run:
+The General data flow of the data from the chain to the Governance Page UI is explained as an example in the diagram below.
 
-### `npm start`
+![DFD](src/assets//dfd//gov-page-dataflow-light.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A more specific Data Flow has been illustrated section-wise below:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+The Data Flow of the overview page showing the collection of Data from the DefiLlama API, its modification to the appropriate format and then rendering in the UI using chart.js and react-chart-js2 libraries.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Overview DFD](src/assets/dfd/overview-dfd.png)
 
-### `npm run build`
+## Atom Economic Zone(AEZ)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Data Flow of the AEZ page showing the collection of Data from the Coingecko API and the contracts of the protocol, its modification to the appropriate format and then rendering in the UI.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![AEZ TVL DFD](src/assets/dfd/aez-dfd.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Governance
 
-### `npm run eject`
+The Data Flow of the Governance page showing the collection of Data from the Contract and REST API, its modification to the appropriate format and then rendering in the UI.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Proposals DFD](src/assets/dfd/gov-dfd.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Data Flow of the Governance page showing the collection of Data from the UI, its modification to the appropriate format and then sending the VoteMsg by executing the transaction on the contract and Msg type URL.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Voting DFD](src/assets/dfd/voting-dfd.png)
