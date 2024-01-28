@@ -37,7 +37,7 @@ const scrollbarStyle = {
 const outline = defineStyle({
   // border: "2px dashed", // change the appearance of the border
   // borderRadius: 0, // remove the border radius
-  fontWeight: "semibold", // change the font weight
+  fontWeight: "bold", // change the font weight
 });
 
 const theme = extendTheme({
